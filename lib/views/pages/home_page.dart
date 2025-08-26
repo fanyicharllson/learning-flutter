@@ -1,4 +1,6 @@
 import 'package:f_app/data/constants.dart';
+import 'package:f_app/views/pages/course_page.dart';
+import 'package:f_app/views/widgets/container_widget.dart';
 import 'package:f_app/views/widgets/hero_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -7,34 +9,26 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> list = [
+      KValue.basicLayout,
+      KValue.cleanUi
+    ];
+
     return Padding(
-      padding: EdgeInsets.all(20.0),
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: SingleChildScrollView(
         child: Column(
           children: [
-            HeroWidget(title: "Welcome to Flutter"),
-            Container(
-              width: double.infinity,
-              padding: EdgeInsetsGeometry.symmetric(vertical: 10.0),
-              child: Card(
-                child: Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Basic Layout",
-                        style: KTextStyle.titleTealtext
-                      ),
-                      Text(
-                        "This is Card widget...",
-                        style: KTextStyle.descriptionTextText
-                      ),
-                    ],
-                  ),
-                ),
+            HeroWidget(
+              title: "Welcome to Flutter",
+              nextPage: CoursePage(),
               ),
-            ),
+            ...List.generate(list.length, (index) {
+              return ContainerWidget(
+                title: list.elementAt(index),
+                description: 'This is a card',
+              );
+            }),
           ],
         ),
       ),

@@ -13,3 +13,7 @@ class KConstants {
   static const String isDarkKey = 'isDarkKey';
 }
 
+class KValue {
+  static const String basicLayout = 'Basic Layout';
+  static const String cleanUi = 'Clean UI';
+}
