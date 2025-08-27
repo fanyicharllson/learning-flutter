@@ -34,7 +34,8 @@ class HomePage extends StatelessWidget {
                 title: list.elementAt(index),
                 description: 'This is a card',
               );
-            }),
+            }
+            ),
           ],
         ),
       ),
